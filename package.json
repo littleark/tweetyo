@@ -1,0 +1,13 @@
+{
+  "name": "tweetyo",
+  "scripts": {
+    "start": "app.js"
+  },
+  "version": "0.0.0-1",
+  "dependencies": {
+    "socket.io": "x",
+    "express": "x",
+    "oauth": "x",
+    "request": "x"
+  }
+}

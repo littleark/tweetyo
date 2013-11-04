@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tweets YO!</title>
+	<script src="js/vendor/socket.io.js"></script>
+</head>
+<body>
+	<h2>TWEETS</h2>
+	<p id="tweets"></p>
+	<script>
+		
+		var tweets=document.getElementById("tweets");
+
+		var socket = io.connect('ws://tweetyo.eu01.aws.af.cm/');
+
+		console.log(socket)
+
+		socket.on("open",function(d){
+			console.log("connected");
+		});
+
+		socket.on('error', function (reason){
+			console.error('Unable to connect Socket.IO', reason);
+		});
+
+		socket.on('tweet', function (d) {
+			
+			//showing tweets in the console
+			console.log(d);
+
+			//not so fancy, but just to show tweets are arriving
+			tweets.innerHTML=d.d+" "+d.u+"  "+d.t+ "<br/>" + tweets.innerHTML;
+		});
+
+	</script>
+</body>
+</html>
